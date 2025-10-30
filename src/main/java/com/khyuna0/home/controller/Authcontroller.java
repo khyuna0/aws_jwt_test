@@ -61,7 +61,7 @@ public class Authcontroller {
 	@GetMapping("/me")
 	public Map<String, String> me(@RequestHeader("Authorization") String authHeader) {
 		
-		String token = authHeader.replace("Bearer", ""); // 헤더에서 토큰 정보만 추출
+		String token = authHeader.replace("Bearer ", ""); // 헤더에서 토큰 정보만 추출
 		String username = jwtUtil.extractUsername(token);
 		
 		return Map.of("username", username);
